@@ -25,10 +25,11 @@ startScreen.bind('update', (frameRate) => {
 })
 
 const clickToStart = () => {
+  if (backroundMusic.paused) {
+    backroundMusic.play()
+  }
   startScreen.clear()
   startFace()
-  console.dir(backroundMusic)
-  console.dir(backroundMusic.paused)
 }
 
 start.addEventListener('click', clickToStart)
@@ -130,7 +131,6 @@ const startFace = () => {
   const nextMessage = () => {
     if (!canContinue) return
 
-    console.log(indexArray)
     if (indexArray < messageArraysLength) {
       line1MessageText.value = ''
       line2MessageText.value = ''
@@ -232,7 +232,6 @@ const startFace = () => {
       currentNumber = Math.floor(Math.random() * noAnswerLength)
     } while (currentNumber === previousNumber)
 
-    console.log(currentNumber)
     let chosenAnswer = noAnswer[currentNumber]
 
     switch (chosenAnswer.length) {
