@@ -189,7 +189,7 @@ const startFace = () => {
           canContinue = false
           break
         case 8:
-          text.innerText = 'Voucher trị giá được chọc anh \n trong 60 phút 3 ngày mình đi chơi'
+          text.innerText = 'Voucher trọn bộ snack lays đầy đủ\nmọi vị anh có thể tìm thấy'
           yes.style.display = 'none'
           no.style.display = 'none'
           questionBlock.style.top = '40%'
