@@ -25,7 +25,7 @@ const styles = {
   weight: 900,
   fill: 'red',
 }
-const startMessage = new Two.Text('Bấm để bắt đầu', startScreen.width / 2, startScreen.height / 2, styles)
+const startMessage = new Two.Text('Click to start', startScreen.width / 2, startScreen.height / 2, styles)
 startScreen.add(startMessage)
 startScreen.play()
 
