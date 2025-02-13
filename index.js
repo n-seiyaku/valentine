@@ -27,6 +27,8 @@ startScreen.bind('update', (frameRate) => {
 const clickToStart = () => {
   startScreen.clear()
   startFace()
+  console.dir(backroundMusic)
+  console.dir(backroundMusic.paused)
 }
 
 start.addEventListener('click', clickToStart)
