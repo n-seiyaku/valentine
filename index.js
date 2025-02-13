@@ -1,5 +1,16 @@
 import Two from 'https://cdn.skypack.dev/two.js@latest'
 
+function isMobile() {
+  const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches
+
+  if (isMobileDevice || isSmallScreen) {
+    return true
+  } else {
+    return false
+  }
+}
+
 const startScreen = new Two({
   type: Two.Types.canvas,
   fullscreen: true,
@@ -14,7 +25,7 @@ const styles = {
   weight: 900,
   fill: 'red',
 }
-const startMessage = new Two.Text('Click to start', startScreen.width / 2, startScreen.height / 2, styles)
+const startMessage = new Two.Text('Bấm để bắt đầu', startScreen.width / 2, startScreen.height / 2, styles)
 startScreen.add(startMessage)
 startScreen.play()
 
@@ -24,7 +35,17 @@ startScreen.bind('update', (frameRate) => {
   startMessage.position.y = startScreen.height / 2
 })
 
+window.addEventListener('load', () => {
+  if (isMobile()) {
+    startMessage.value = 'Lên lap mà coi'
+    heart.remove()
+  }
+})
+
 const clickToStart = () => {
+  if (isMobile()) {
+    return
+  }
   if (backroundMusic.paused) {
     backroundMusic.play()
   }
